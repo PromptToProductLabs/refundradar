@@ -37,11 +37,12 @@ RefundRadar calculates:
 - stop condition
 - browser-only saved case shelf with `localStorage`
 - printable case packet
+- downloadable Markdown case packet for sharing or archiving
 - `.ics` calendar reminder for the next follow-up
 
 ## Demo
 
-Live preview: https://dusty-hearth-jqg4.here.now/  
+Live preview: https://trusty-badge-63wp.here.now/  
 Anonymous here.now demo expires 2026-06-30 unless claimed.
 
 ## Run locally

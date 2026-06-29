@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 — 2026-06-29
+
+- Added Markdown case-packet export for archiving or sending the loop to a human reviewer.
+- Expanded Playwright smoke coverage to verify exported packet downloads.
+
 ## 0.2.0 — 2026-06-29
 
 - Added browser-only saved case shelf using `localStorage`.

@@ -123,7 +123,8 @@ Then it generates:
 - an escalation timeline,
 - copy-ready follow-up messages,
 - an evidence checklist,
-- a stop condition.
+- a stop condition,
+- a downloadable case packet the user can archive or send to a human reviewer.
 
 The prototype is only one use case.
 
@@ -180,7 +181,7 @@ It shows how an open-source agent-loop concept can become a practical product fo
 - Loop Library / Loopy: https://github.com/Forward-Future/loopy
 - Loop catalog: https://signals.forwardfuture.com/loop-library/
 - RefundRadar prototype: https://github.com/PromptToProductLabs/refundradar
-- Live demo: https://dusty-hearth-jqg4.here.now/
+- Live demo: https://trusty-badge-63wp.here.now/
 - Screenshots: `docs/screenshots/`
 
 This is the type of open-source project I want to highlight in **From Prompt to Product**:

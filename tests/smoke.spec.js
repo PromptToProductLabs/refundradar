@@ -4,7 +4,7 @@ const path = require('path');
 const app = 'file://' + path.resolve(__dirname, '..', 'index.html');
 const shots = path.resolve(__dirname, '..', 'docs', 'screenshots');
 
-test('RefundRadar computes loop actions, saves cases, and exports reminders', async ({ page }) => {
+test('RefundRadar computes loop actions, saves cases, and exports reminders and packets', async ({ page }) => {
   await page.goto(app);
   await expect(page.getByText('Stop letting refund cases disappear')).toBeVisible();
   await expect(page.locator('#statusLabel')).toHaveText('Follow-up due');
@@ -24,6 +24,11 @@ test('RefundRadar computes loop actions, saves cases, and exports reminders', as
   await page.getByRole('button', { name: 'Download reminder' }).click();
   const download = await downloadPromise;
   expect(download.suggestedFilename()).toContain('refundradar-brightdesk-saas');
+
+  const packetPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export packet' }).click();
+  const packet = await packetPromise;
+  expect(packet.suggestedFilename()).toContain('refundradar-brightdesk-saas-packet.md');
 
   await page.screenshot({ path: path.join(shots, 'landing-overview.png'), fullPage: true });
   await page.locator('.loopcard').screenshot({ path: path.join(shots, 'case-loop.png') });
