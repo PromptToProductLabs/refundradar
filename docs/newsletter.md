@@ -1,148 +1,173 @@
-# The first useful personal AI agents may just be stubborn follow-up loops
+# Introducing RefundRadar: a follow-up system for getting your money back
 
-Most AI agent demos are built around one big promise:
+Refunds are easy to start and hard to finish.
 
-“Tell the agent what you want, and it will go do it.”
+You contact the airline, store, SaaS company, warranty desk, or vendor.  
+They say they’ll get back to you.  
+A few days pass.  
+The receipt is somewhere in your inbox.  
+The chat transcript is in another tab.  
+You forget the promised date.  
+The case quietly dies.
 
-That sounds impressive.
+That is the problem **RefundRadar** is built for.
 
-But in real life, a lot of useful work does not happen in one shot.
+RefundRadar is a simple product idea: turn every refund, cancellation, warranty, or vendor-dispute case into a follow-up loop.
 
-It happens through follow-up.
+It tells you:
 
-You ask for a refund.  
-The company says they’ll get back to you.  
-You wait.  
-You forget.  
-The case dies.
+- what the case is worth,
+- what proof to keep,
+- when to follow up,
+- when to escalate,
+- what message to send next,
+- and when the loop should stop.
 
-That is why I found **Loop Library / Loopy** interesting.
+The promise is not “AI will fight the company for you.”
 
-It is an open-source project from Forward Future that collects practical AI-agent loops and provides a way to discover, adapt, and run repeatable agent workflows.
+The promise is more practical:
+
+> Keep the case alive until you either get your money back, receive a clear decision, or reach the point where a human escalation is needed.
+
+## Who this is for
+
+RefundRadar is for people who do not want another complicated finance app.
+
+It is for:
+
+- busy consumers chasing refunds,
+- freelancers disputing vendor charges,
+- families managing warranty claims,
+- small business owners tracking cancellations and reimbursements,
+- anyone who has ever lost money because follow-up was annoying.
+
+The first version focuses on one case at a time.
+
+You enter the vendor, amount, case type, current status, last contact date, promised response date, and evidence notes.
+
+RefundRadar turns that into a clear case packet.
+
+## The workflow
+
+A RefundRadar case has four parts.
+
+### 1. Case intake
+
+You capture the basic facts:
+
+- vendor,
+- amount,
+- refund/cancellation/warranty type,
+- current status,
+- last contact date,
+- promised response date,
+- evidence notes.
+
+### 2. Loop status
+
+RefundRadar calculates whether the case is:
+
+- waiting,
+- follow-up due,
+- escalation due,
+- resolved.
+
+This is the product’s core value. It removes the mental tracking.
+
+### 3. Message composer
+
+The product generates copy-ready messages:
+
+- polite follow-up,
+- firm escalation,
+- final notice.
+
+The messages are intentionally factual and calm. They help the user move the case forward without rewriting the same email from scratch.
+
+### 4. Evidence checklist
+
+RefundRadar reminds the user what proof to keep:
+
+- receipt or invoice,
+- refund policy,
+- chat/email transcript,
+- promise date,
+- case number,
+- payment method or chargeback deadline.
+
+This makes the case easier to escalate later if needed.
+
+## Where the open-source project comes in
+
+The product was inspired by **Loop Library / Loopy**, an open-source project from Forward Future.
 
 GitHub: https://github.com/Forward-Future/loopy  
 Catalog: https://signals.forwardfuture.com/loop-library/
 
-## What is a loop?
+Loop Library’s useful idea is that agents should not just respond once.
 
-A normal prompt asks an agent to do something once.
+They should run bounded loops.
 
-A loop gives the agent a repeatable workflow:
+A good loop has:
 
-1. What is the goal?
-2. How do we check progress?
-3. What should happen next?
-4. When should the loop stop or ask a human?
+1. a goal,
+2. a check,
+3. a next action,
+4. a stop condition.
 
-That fourth question is important.
+That structure is exactly what refund follow-up needs.
 
-Good loops are not “let the agent run forever.”
+Goal: recover the refund.  
+Check: did the vendor respond or pay?  
+Next action: wait, follow up, or escalate.  
+Stop condition: refund received, formal denial, or human decision needed.
 
-Good loops are bounded. They have checks, stop conditions, and handoff points.
+RefundRadar is a product built from that open-source idea.
 
-That makes them useful for messy real-world workflows where persistence matters more than brilliance.
+## The prototype use case
 
-## The use case that clicked for me
+For the prototype, I built a browser-based RefundRadar case for a cancelled flight refund.
 
-One Loop Library example is a refund follow-up loop.
+The sample case:
 
-That sounds small, but it is exactly the kind of personal-admin problem people actually have.
+- vendor: Northstar Air,
+- amount: $486,
+- status: waiting,
+- promised refund response date has passed,
+- evidence includes receipt, booking email, cancellation notice, and chat transcript.
 
-Refunds, cancellations, warranty claims, insurance paperwork, and vendor disputes all have the same shape:
+RefundRadar marks the case as **follow-up due**, shows the next action, builds an escalation timeline, and generates a polite follow-up message.
 
-- you start the case
-- someone promises a response
-- the deadline passes
-- you need to follow up
-- sometimes you need to escalate
-- eventually you stop because the case is resolved or a human decision is needed
+This is a small use case, but it demonstrates the product direction:
 
-This is not a glamorous AI use case.
-
-That is why it is useful.
-
-## The prototype I built
-
-I built a small prototype called **RefundRadar**.
-
-RefundRadar turns one refund, cancellation, or warranty case into a follow-up loop.
-
-The user enters:
-
-- vendor
-- amount
-- case type
-- current status
-- last contact date
-- promised response date
-- evidence notes
-
-RefundRadar returns:
-
-- current loop status
-- next action
-- escalation timeline
-- evidence checklist
-- copy-ready follow-up messages
-- stop condition
-- a saved case shelf in the browser
-- a printable case packet
-- a calendar reminder for the next follow-up
-
-The goal is not to fully automate the refund.
-
-The goal is to keep the case alive and make the next step obvious, without pretending the software should send legal or financial messages without human approval.
+> Instead of asking AI to do everything, package a messy personal-admin task into a clear loop that keeps moving until it reaches a stop condition.
 
 ## Why this matters
 
-I think this is a better mental model for useful agents.
+I like this product direction because it is useful without needing a magical agent.
 
-Instead of asking:
+Even as a simple web app, RefundRadar helps someone remember what to do next.
 
-> “Can AI do this whole task for me?”
+Later, the same product could expand into:
 
-Ask:
+- saved cases,
+- calendar reminders,
+- Gmail/Outlook draft generation,
+- PDF case packets,
+- vendor-specific escalation playbooks,
+- browser-agent follow-up runs with human approval.
 
-> “Can AI help me keep this loop moving until it reaches a clear stop condition?”
+But the core product is already understandable:
 
-That applies to more than refunds:
+**A follow-up system for getting your money back.**
 
-- job applications
-- insurance claims
-- sales follow-ups
-- client approvals
-- overdue invoices
-- appointment scheduling
-- subscription cancellations
-
-The product opportunity is not just smarter chat.
-
-It is packaged persistence.
-
-## What builders can learn
-
-Loop Library is valuable because it turns vague agent work into a reusable structure.
-
-A good agent product should make these visible:
-
-- the goal
-- the check
-- the next action
-- the stop condition
-
-RefundRadar is a simple example, but the pattern is much bigger.
-
-The first wave of useful personal agents may not look like autonomous employees.
-
-They may look like stubborn little systems that remember what we forget and keep boring cases moving.
+That is the kind of product pattern I want to explore more: useful open-source ideas turned into practical tools normal people can understand.
 
 ## Try it
 
-- OSS project: https://github.com/Forward-Future/loopy
-- Prototype: https://github.com/PromptToProductLabs/refundradar
-- Demo: https://dusty-hearth-jqg4.here.now/
+- Product prototype: https://github.com/PromptToProductLabs/refundradar
+- Live demo: https://dusty-hearth-jqg4.here.now/
+- OSS source: https://github.com/Forward-Future/loopy
 - Screenshots: `docs/screenshots/`
 
-This is the new direction I want to explore with **From Prompt to Product**:
-
-Find helpful open-source projects, explain the idea clearly, then build a real product prototype from it.
+This is part of my **From Prompt to Product** experiment: finding useful open-source projects, explaining the product opportunity, and building small prototypes that show one practical use case.
