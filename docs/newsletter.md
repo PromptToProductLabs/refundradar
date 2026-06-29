@@ -125,10 +125,12 @@ Then it generates:
 - an evidence checklist,
 - a stop condition,
 - a case-type escalation playbook with the right channels, documents, ladder, and human-approval stop rule,
+- a vendor route that adapts the loop for airlines, subscriptions, warranties, or general disputes,
+- a deadline guard that stops the loop for human approval before a dispute window gets too close,
 - a downloadable case packet the user can archive or send to a human reviewer,
 - and a Loop Library-style JSON file that can be exported, imported, or handed to a future agent workflow.
 
-That playbook piece matters because “escalate” is not a real action by itself. A useful loop has to say where to go next, what proof to bring, and when the user should stop and make a human decision.
+That playbook and deadline-guard piece matters because “escalate” is not a real action by itself. A useful loop has to say where to go next, what proof to bring, how much time is left, and when the user should stop and make a human decision.
 
 The prototype is only one use case.
 

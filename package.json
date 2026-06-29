@@ -1,6 +1,6 @@
 {
   "name": "refundradar",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Turn refund, cancellation, warranty, and vendor-dispute cases into practical follow-up loops.",
   "private": false,
   "type": "commonjs",

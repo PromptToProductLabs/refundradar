@@ -40,6 +40,8 @@ RefundRadar calculates:
 - downloadable Markdown case packet for sharing or archiving
 - Loop Library-style JSON import/export for moving a case between RefundRadar, another tool, or an agent workflow
 - vendor-type escalation playbooks that suggest channels, documents, escalation ladders, and human-approval stop rules for refunds, cancellations, warranties, and vendor disputes
+- vendor-route detection for airline, subscription, warranty, and general disputes
+- deadline guard that stops the loop for human approval when a card/contract dispute deadline is near
 - `.ics` calendar reminder for the next follow-up
 
 ## Demo

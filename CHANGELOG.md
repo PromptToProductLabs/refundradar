@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0 — 2026-06-29
+
+- Added purchase/charge date and dispute-deadline fields to case intake.
+- Added deadline guard logic that switches the loop to `Human approval needed` when a card/contract/policy deadline is within 3 days.
+- Added vendor-route detection for airline refunds, subscription billing, warranty claims, and general vendor disputes.
+- Included vendor-route and deadline-guard details in Markdown packet and Loop JSON exports.
+- Expanded Playwright smoke coverage for deadline guard and vendor-route schema.
+
 ## 0.5.0 — 2026-06-29
 
 - Added case-type escalation playbooks for refunds, cancellations, warranties, and vendor disputes.

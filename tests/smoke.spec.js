@@ -60,13 +60,23 @@ test('RefundRadar computes loop actions, saves cases, and exports reminders and 
   await expect(page.locator('#vendor')).toHaveValue('KitchenPro Warranty');
   await expect(page.locator('#statusLabel')).toHaveText('Escalate');
   await expect(page.locator('#playbook')).toContainText('Warranty portal');
+  await expect(page.locator('#playbook')).toContainText('Warranty claim route');
+  await expect(page.locator('#playbook')).toContainText('Deadline guard');
   await expect(page.locator('#playbook')).toContainText('Human approval stop');
+
+  await page.locator('#deadline').fill(new Date(Date.now() + 2 * 86400000).toISOString().slice(0, 10));
+  await expect(page.locator('#statusLabel')).toHaveText('Human approval needed');
+  await expect(page.locator('#timeline')).toContainText('Deadline guard');
 
   const warrantyLoopPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export loop JSON' }).click();
   const warrantyLoopDownload = await warrantyLoopPromise;
   const warrantyLoop = JSON.parse(fs.readFileSync(await warrantyLoopDownload.path(), 'utf8'));
   expect(warrantyLoop.playbook.channels).toContain('Warranty portal');
+  expect(warrantyLoop.vendor_route.label).toBe('Warranty claim route');
+  expect(warrantyLoop.case.dispute_deadline).toBeTruthy();
+  expect(warrantyLoop.loop.status).toBe('Human approval needed');
+  expect(warrantyLoop.loop.human_approval_needed).toBe(true);
   expect(warrantyLoop.playbook.stop).toContain('warranty denial');
 
   await page.screenshot({ path: path.join(shots, 'landing-overview.png'), fullPage: true });
