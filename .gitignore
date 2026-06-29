@@ -1,0 +1,9 @@
+# Local
+.DS_Store
+*.log
+.venv/
+__pycache__/
+.pytest_cache/
+
+# here.now local publish state
+.herenow/
