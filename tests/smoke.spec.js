@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const fs = require('fs');
 const path = require('path');
 
 const app = 'file://' + path.resolve(__dirname, '..', 'index.html');
@@ -29,6 +30,35 @@ test('RefundRadar computes loop actions, saves cases, and exports reminders and 
   await page.getByRole('button', { name: 'Export packet' }).click();
   const packet = await packetPromise;
   expect(packet.suggestedFilename()).toContain('refundradar-brightdesk-saas-packet.md');
+
+  const loopPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export loop JSON' }).click();
+  const loopDownload = await loopPromise;
+  expect(loopDownload.suggestedFilename()).toContain('refundradar-brightdesk-saas-loop.json');
+  const loopPath = await loopDownload.path();
+  const loop = JSON.parse(fs.readFileSync(loopPath, 'utf8'));
+  expect(loop.schema).toBe('refundradar.loop.v1');
+  expect(loop.loop.stop_condition).toContain('Refund received');
+  expect(loop.case.vendor).toBe('BrightDesk SaaS');
+
+  await page.setInputFiles('#loopImport', {
+    name: 'warranty-loop.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      schema: 'refundradar.loop.v1',
+      case: {
+        vendor: 'KitchenPro Warranty',
+        type: 'Warranty',
+        amount: 229,
+        state: 'Denied',
+        last_contact: '2026-06-10',
+        promised_response: '2026-06-15',
+        evidence_notes: 'Mixer failed inside warranty window; receipt and photos saved.'
+      }
+    }))
+  });
+  await expect(page.locator('#vendor')).toHaveValue('KitchenPro Warranty');
+  await expect(page.locator('#statusLabel')).toHaveText('Escalate');
 
   await page.screenshot({ path: path.join(shots, 'landing-overview.png'), fullPage: true });
   await page.locator('.loopcard').screenshot({ path: path.join(shots, 'case-loop.png') });

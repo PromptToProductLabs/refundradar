@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 — 2026-06-29
+
+- Added Loop Library-style JSON export for the active case, loop card, status, next action, stop condition, and message draft.
+- Added Loop JSON import so a saved loop can repopulate the case intake and recalculate the follow-up status.
+- Expanded Playwright smoke coverage for loop JSON download and import.
+
 ## 0.3.0 — 2026-06-29
 
 - Added Markdown case-packet export for archiving or sending the loop to a human reviewer.

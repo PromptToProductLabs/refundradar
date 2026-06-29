@@ -41,14 +41,15 @@ RefundRadar is useful even without full browser/email automation because it give
 - a browser-only saved case shelf for multiple active refunds,
 - a calendar reminder for the next follow-up,
 - a printable packet for records or human escalation,
-- a downloadable Markdown case packet that carries the loop card, evidence checklist, and message draft outside the browser.
+- a downloadable Markdown case packet that carries the loop card, evidence checklist, and message draft outside the browser,
+- a Loop Library-style JSON import/export contract so the case can move between RefundRadar, an agent, or another loop tool.
 
 ## UI DNA
 
 - **Metaphor:** personal admin command desk / refund case file.
 - **Primary surface:** case tracker with loop status, timeline, and message composer.
 - **Signature interaction:** edit case fields and watch next action/status recalculate.
-- **Second interaction:** save a case locally, reload it, export the packet, print the packet, or download a follow-up reminder.
+- **Second interaction:** save a case locally, reload it, export the packet, export/import Loop JSON, print the packet, or download a follow-up reminder.
 - **Signature component:** Loop Status Dial.
 - **Visual style:** consumer-finance receipt desk, warm and trustworthy.
 - **Logo:** receipt/check/radar mark.

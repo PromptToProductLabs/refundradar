@@ -38,11 +38,12 @@ RefundRadar calculates:
 - browser-only saved case shelf with `localStorage`
 - printable case packet
 - downloadable Markdown case packet for sharing or archiving
+- Loop Library-style JSON import/export for moving a case between RefundRadar, another tool, or an agent workflow
 - `.ics` calendar reminder for the next follow-up
 
 ## Demo
 
-Live preview: https://trusty-badge-63wp.here.now/  
+Live preview: https://cosmic-linden-zvdr.here.now/  
 Anonymous here.now demo expires 2026-06-30 unless claimed.
 
 ## Run locally
