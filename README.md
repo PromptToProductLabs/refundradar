@@ -35,6 +35,9 @@ RefundRadar calculates:
 - evidence checklist
 - copy-ready message templates
 - stop condition
+- browser-only saved case shelf with `localStorage`
+- printable case packet
+- `.ics` calendar reminder for the next follow-up
 
 ## Demo
 
@@ -50,7 +53,7 @@ python3 -m http.server 8080
 # open http://localhost:8080
 ```
 
-No backend, API key, database, or account required.
+No backend, API key, database, or account required. Saved cases stay in the user's browser storage.
 
 ## Screenshots
 

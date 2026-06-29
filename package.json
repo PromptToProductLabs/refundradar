@@ -1,0 +1,30 @@
+{
+  "name": "refundradar",
+  "version": "0.2.0",
+  "description": "Turn refund, cancellation, warranty, and vendor-dispute cases into practical follow-up loops.",
+  "private": false,
+  "type": "commonjs",
+  "scripts": {
+    "test": "playwright test tests/smoke.spec.js --reporter=line"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PromptToProductLabs/refundradar.git"
+  },
+  "keywords": [
+    "refunds",
+    "personal-admin",
+    "agent-loops",
+    "loop-library",
+    "prototype"
+  ],
+  "author": "PromptToProductLabs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PromptToProductLabs/refundradar/issues"
+  },
+  "homepage": "https://github.com/PromptToProductLabs/refundradar#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0"
+  }
+}

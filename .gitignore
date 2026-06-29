@@ -4,6 +4,9 @@
 .venv/
 __pycache__/
 .pytest_cache/
+node_modules/
+playwright-report/
+test-results/
 
 # here.now local publish state
 .herenow/

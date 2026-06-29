@@ -85,10 +85,13 @@ RefundRadar returns:
 - evidence checklist
 - copy-ready follow-up messages
 - stop condition
+- a saved case shelf in the browser
+- a printable case packet
+- a calendar reminder for the next follow-up
 
 The goal is not to fully automate the refund.
 
-The goal is to keep the case alive and make the next step obvious.
+The goal is to keep the case alive and make the next step obvious, without pretending the software should send legal or financial messages without human approval.
 
 ## Why this matters
 
