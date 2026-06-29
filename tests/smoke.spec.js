@@ -31,6 +31,14 @@ test('RefundRadar computes loop actions, saves cases, and exports reminders and 
   const packet = await packetPromise;
   expect(packet.suggestedFilename()).toContain('refundradar-brightdesk-saas-packet.md');
 
+  const printPacketPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export print/PDF packet' }).click();
+  const printPacket = await printPacketPromise;
+  expect(printPacket.suggestedFilename()).toContain('refundradar-brightdesk-saas-print-packet.html');
+  const printPacketHtml = fs.readFileSync(await printPacket.path(), 'utf8');
+  expect(printPacketHtml).toContain('Print / Save as PDF');
+  expect(printPacketHtml).toContain('Subscription billing route');
+
   const loopPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export loop JSON' }).click();
   const loopDownload = await loopPromise;

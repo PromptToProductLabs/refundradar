@@ -38,6 +38,7 @@ RefundRadar calculates:
 - browser-only saved case shelf with `localStorage`
 - printable case packet
 - downloadable Markdown case packet for sharing or archiving
+- standalone print/PDF-ready HTML case packet with the loop card, escalation route, evidence list, and message draft
 - Loop Library-style JSON import/export for moving a case between RefundRadar, another tool, or an agent workflow
 - vendor-type escalation playbooks that suggest channels, documents, escalation ladders, and human-approval stop rules for refunds, cancellations, warranties, and vendor disputes
 - vendor-route detection for airline, subscription, warranty, and general disputes

@@ -43,6 +43,7 @@ RefundRadar is useful even without full browser/email automation because it give
 - a printable packet for records or human escalation,
 - a downloadable Markdown case packet that carries the loop card, evidence checklist, and message draft outside the browser,
 - a Loop Library-style JSON import/export contract so the case can move between RefundRadar, an agent, or another loop tool.
+- a standalone print/PDF-ready HTML packet for human review, archiving, or save-as-PDF workflows.
 - vendor-type escalation playbooks that make the next loop action concrete: best channel, required documents, escalation ladder, and human-approval stop rule.
 - vendor-route detection plus a dispute-deadline guard, so the loop stops for human approval before a chargeback, warranty, or policy window is missed.
 
@@ -51,7 +52,7 @@ RefundRadar is useful even without full browser/email automation because it give
 - **Metaphor:** personal admin command desk / refund case file.
 - **Primary surface:** case tracker with loop status, timeline, and message composer.
 - **Signature interaction:** edit case fields and watch next action/status recalculate.
-- **Second interaction:** save a case locally, reload it, view the case-type playbook and vendor route, set a dispute deadline guard, export the packet, export/import Loop JSON, print the packet, or download a follow-up reminder.
+- **Second interaction:** save a case locally, reload it, view the case-type playbook and vendor route, set a dispute deadline guard, export Markdown/print-PDF packets, export/import Loop JSON, print the packet, or download a follow-up reminder.
 - **Signature component:** Loop Status Dial.
 - **Visual style:** consumer-finance receipt desk, warm and trustworthy.
 - **Logo:** receipt/check/radar mark.

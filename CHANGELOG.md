@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.0 — 2026-06-29
+
+- Added a standalone print/PDF-ready HTML packet export for human review, archive, or save-as-PDF workflows.
+- The print packet includes loop status, next action, case summary, Loop Library-style loop card, escalation route, deadline guard, evidence checklist, evidence notes, and the current message draft.
+- Expanded Playwright smoke coverage to verify the print packet download and contents.
+
 ## 0.6.0 — 2026-06-29
 
 - Added purchase/charge date and dispute-deadline fields to case intake.
