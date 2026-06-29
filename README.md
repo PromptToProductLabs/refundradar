@@ -39,6 +39,7 @@ RefundRadar calculates:
 - printable case packet
 - downloadable Markdown case packet for sharing or archiving
 - Loop Library-style JSON import/export for moving a case between RefundRadar, another tool, or an agent workflow
+- vendor-type escalation playbooks that suggest channels, documents, escalation ladders, and human-approval stop rules for refunds, cancellations, warranties, and vendor disputes
 - `.ics` calendar reminder for the next follow-up
 
 ## Demo

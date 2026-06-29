@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 — 2026-06-29
+
+- Added case-type escalation playbooks for refunds, cancellations, warranties, and vendor disputes.
+- Each playbook now exposes best channels, evidence documents, escalation ladder, and a human-approval stop rule.
+- Included playbook data in Markdown packet and Loop JSON exports.
+- Expanded Playwright smoke coverage for playbook rendering and exported playbook schema.
+
 ## 0.4.0 — 2026-06-29
 
 - Added Loop Library-style JSON export for the active case, loop card, status, next action, stop condition, and message draft.

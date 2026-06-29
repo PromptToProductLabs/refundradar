@@ -59,6 +59,15 @@ test('RefundRadar computes loop actions, saves cases, and exports reminders and 
   });
   await expect(page.locator('#vendor')).toHaveValue('KitchenPro Warranty');
   await expect(page.locator('#statusLabel')).toHaveText('Escalate');
+  await expect(page.locator('#playbook')).toContainText('Warranty portal');
+  await expect(page.locator('#playbook')).toContainText('Human approval stop');
+
+  const warrantyLoopPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export loop JSON' }).click();
+  const warrantyLoopDownload = await warrantyLoopPromise;
+  const warrantyLoop = JSON.parse(fs.readFileSync(await warrantyLoopDownload.path(), 'utf8'));
+  expect(warrantyLoop.playbook.channels).toContain('Warranty portal');
+  expect(warrantyLoop.playbook.stop).toContain('warranty denial');
 
   await page.screenshot({ path: path.join(shots, 'landing-overview.png'), fullPage: true });
   await page.locator('.loopcard').screenshot({ path: path.join(shots, 'case-loop.png') });
