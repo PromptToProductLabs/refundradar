@@ -127,6 +127,7 @@ Then it generates:
 - a case-type escalation playbook with the right channels, documents, ladder, and human-approval stop rule,
 - a vendor route that adapts the loop for airlines, subscriptions, warranties, or general disputes,
 - a deadline guard that stops the loop for human approval before a dispute window gets too close,
+- a packet-readiness score that names missing proof before the user escalates,
 - a downloadable Markdown case packet the user can archive or send to a human reviewer,
 - a standalone print/PDF-ready packet for receipts, disputes, or save-as-PDF handoff,
 - and a Loop Library-style JSON file that can be exported, imported, or handed to a future agent workflow.
@@ -188,7 +189,7 @@ It shows how an open-source agent-loop concept can become a practical product fo
 - Loop Library / Loopy: https://github.com/Forward-Future/loopy
 - Loop catalog: https://signals.forwardfuture.com/loop-library/
 - RefundRadar prototype: https://github.com/PromptToProductLabs/refundradar
-- Live demo: https://cosmic-linden-zvdr.here.now/
+- Live demo: https://sunny-knoll-2skn.here.now/
 - Screenshots: `docs/screenshots/`
 
 This is the type of open-source project I want to highlight in **From Prompt to Product**:

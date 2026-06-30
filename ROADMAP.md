@@ -6,4 +6,5 @@
 - Add Gmail/Outlook draft generation with human approval.
 - Add real vendor-specific deep links for major airlines, subscription vendors, warranty providers, and consumer complaint forms.
 - Add deadline presets from card networks, warranty terms, and cancellation policies.
+- Turn packet-readiness gaps into click-to-add evidence prompts.
 - Add optional encrypted multi-device sync.

@@ -43,12 +43,13 @@ RefundRadar calculates:
 - vendor-type escalation playbooks that suggest channels, documents, escalation ladders, and human-approval stop rules for refunds, cancellations, warranties, and vendor disputes
 - vendor-route detection for airline, subscription, warranty, and general disputes
 - deadline guard that stops the loop for human approval when a card/contract dispute deadline is near
+- packet-readiness scoring that flags missing proof before the user escalates
 - `.ics` calendar reminder for the next follow-up
 
 ## Demo
 
-Live preview: https://cosmic-linden-zvdr.here.now/  
-Anonymous here.now demo expires 2026-06-30 unless claimed.
+Live preview: https://sunny-knoll-2skn.here.now/  
+Anonymous here.now demo expires 2026-07-01T00:07:20.913Z unless claimed.
 
 ## Run locally
 

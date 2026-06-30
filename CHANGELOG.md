@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.0 — 2026-06-29
+
+- Added a Packet Readiness panel that scores the evidence packet and names missing proof before escalation.
+- Included packet-readiness score and gaps in Markdown packet export, print/PDF packet export, and Loop JSON export.
+- Expanded Playwright smoke coverage to verify readiness UI, print packet contents, and exported JSON schema.
+
 ## 0.7.0 — 2026-06-29
 
 - Added a standalone print/PDF-ready HTML packet export for human review, archive, or save-as-PDF workflows.

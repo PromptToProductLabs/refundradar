@@ -15,6 +15,8 @@ test('RefundRadar computes loop actions, saves cases, and exports reminders and 
 
   await page.getByRole('button', { name: 'Load subscription sample' }).click();
   await expect(page.locator('#statusLabel')).toHaveText('Follow-up due');
+  await expect(page.locator('#readinessLabel')).toContainText('Usable');
+  await expect(page.locator('#evidenceGaps')).toContainText('Promise date recorded');
   await page.getByRole('button', { name: 'Save case locally' }).click();
   await expect(page.locator('#caseShelf')).toContainText('BrightDesk SaaS');
 
@@ -38,6 +40,7 @@ test('RefundRadar computes loop actions, saves cases, and exports reminders and 
   const printPacketHtml = fs.readFileSync(await printPacket.path(), 'utf8');
   expect(printPacketHtml).toContain('Print / Save as PDF');
   expect(printPacketHtml).toContain('Subscription billing route');
+  expect(printPacketHtml).toContain('Packet readiness');
 
   const loopPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export loop JSON' }).click();
@@ -72,7 +75,8 @@ test('RefundRadar computes loop actions, saves cases, and exports reminders and 
   await expect(page.locator('#playbook')).toContainText('Deadline guard');
   await expect(page.locator('#playbook')).toContainText('Human approval stop');
 
-  await page.locator('#deadline').fill(new Date(Date.now() + 2 * 86400000).toISOString().slice(0, 10));
+  await page.locator('#deadline').fill(await page.evaluate(() => iso(1)));
+  await page.locator('#deadline').evaluate((el) => el.dispatchEvent(new Event('change', { bubbles: true })));
   await expect(page.locator('#statusLabel')).toHaveText('Human approval needed');
   await expect(page.locator('#timeline')).toContainText('Deadline guard');
 
@@ -86,6 +90,8 @@ test('RefundRadar computes loop actions, saves cases, and exports reminders and 
   expect(warrantyLoop.loop.status).toBe('Human approval needed');
   expect(warrantyLoop.loop.human_approval_needed).toBe(true);
   expect(warrantyLoop.playbook.stop).toContain('warranty denial');
+  expect(warrantyLoop.evidence_readiness.score).toBeGreaterThan(0);
+  expect(warrantyLoop.evidence_readiness.gaps).toContain('serial number');
 
   await page.screenshot({ path: path.join(shots, 'landing-overview.png'), fullPage: true });
   await page.locator('.loopcard').screenshot({ path: path.join(shots, 'case-loop.png') });
